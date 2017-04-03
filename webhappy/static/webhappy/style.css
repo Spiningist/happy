@@ -1,0 +1,29 @@
+@font-face {
+    font-family: 'DINPro-Bold';
+    src: url("fonts/DINPro-Bold Regular.otf");
+}
+
+@font-face {
+    font-family: 'DINPro';
+    src: url("fonts/DINPro-Regular_0.otf");
+}
+
+@font-face {
+    font-family: 'Francker';
+    src: url("fonts/FranckerCYR-Regular.otf");
+}
+
+@font-face {
+    font-family: 'Leo';
+    src: url("fonts/LeOsler_Rough-Light.ttf");
+}
+
+@font-face {
+    font-family: 'Stripe';
+    src: url("fonts/Stripe.ttf");
+}
+
+@font-face {
+    font-family: 'Stripe-Black';
+    src: url("fonts/Stripe_black.ttf");
+}

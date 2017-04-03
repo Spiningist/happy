@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 from django.shortcuts import render
 
-# Create your views here.
+def index(request):
+    return render(request, 'webhappy/index.html',{})

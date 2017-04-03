@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <script src="{% static 'webhappy/jquery-3.1.1.min.js' %}"></script>
+    {% block script %}<script src="{% static 'webhappy/script.js' %}"></script> {% endblock %}
+    <link rel="stylesheet" type="text/css" href="{% static 'webhappy/style.css' %}" />
+    <link rel="icon" href="{% static "bh2017/images/favicon-bitva.jpg"%}">
+    <title>{% block title %} Благотворительный фонд счастье {% endblock %}</title>
+</head>
+{% block sidebar %}
+{% endblock %}
+{% block content %}
+{% endblock %}
