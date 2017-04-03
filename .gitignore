@@ -7,7 +7,8 @@ __pycache__/
 *.pot
 *.pyc
 .idea/
-
+key.py
+db.conf
 
 # C extensions
 *.so
