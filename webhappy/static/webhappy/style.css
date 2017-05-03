@@ -38,6 +38,7 @@ body {
     text-align: center;
     margin: 0;
     padding: 0;
+    min-width: 1296px;
 }
 
 #top_line {
@@ -58,6 +59,7 @@ body {
     text-align: left;
     text-transform: uppercase;
     font: 15px 'DINPro-Bold';
+    margin-left: 31px;
 }
 
 .black_name {
@@ -104,6 +106,8 @@ body {
 #first_row_list {
     list-style: none;
     display: inline-block;
+    margin-left: 0;
+    padding-left: 0;
 }
 
 #first_row_list li {
@@ -124,6 +128,16 @@ body {
     display: block;
 }
 
+#social_list {
+    text-align: right;
+    margin-bottom: 8px;
+}
+
 #social_list li {
     display: inline-block;
+    margin-left: 20px;
+}
+
+.phone_wrap {
+    margin-left: 17px;
 }
