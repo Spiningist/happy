@@ -19,17 +19,21 @@
                 <li class="first_row_list_dot">
                     <div class="fond_name"><span class="black_name">благотворительный фонд</span><br><span class="red_name"><q>счастье</q></span></div>
                 </li>
-                <li class="first_row_list_dot"></li>
+                <li class="first_row_list_dot">
+                    <div class="phone_wrap">
+                        <img id="phone_ico" src="{% static 'webhappy/images/phone.png' %}"><a id="head_phone_link" href="tel:{{ index_page.phone_country}}{{ index_page.phone_code }}{{ index_page.phone_number }}"><span class="black_phone">{{ index_page.phone_country }}</span><span class="red_phone"> ({{ index_page.phone_code }}) </span><span class="black_phone"> {{ index_page.phone_number }}</span></a>
+                    </div>
+                </li>
                 <li class="first_row_list_dot">
                     <ul id="kontakt_list">
-                        <li class="kontakt_list_dot"></li>
                         <li class="kontakt_list_dot">
                             <ul id="social_list">
-                                <li class="social_list_dot"></li>
-                                <li class="social_list_dot"></li>
-                                <li class="social_list_dot"></li>
+                                <li class="social_list_dot"><a href="{{ index_page.fb }}"><img src="{% static 'webhappy/images/fb.png' %}"></a></li>
+                                <li class="social_list_dot"><a href="{{ index_page.insta }}"><img src="{% static 'webhappy/images/inst.png' %}"></a></li>
+                                <li class="social_list_dot"><a href="{{ index_page.youtube }}"><img src="{% static 'webhappy/images/youtube.png' %}"></a></li>
                             </ul>
                         </li>
+                        <li class="kontakt_list_dot"><div id="email">{{ index_page.email }}</div></li>
                     </ul>
                 </li>
             </ul>

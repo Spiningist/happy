@@ -69,3 +69,61 @@ body {
     quotes: "\00ab" "\00bb";
     vertical-align: middle;
 }
+
+#head_phone_link {
+    font: 24px 'DINPro-Bold';
+    text-decoration: none;
+    color: black;
+    vertical-align: text-bottom;
+}
+
+#head_phone_link:hover {
+    text-decoration: underline; /* Добавляем подчеркивание */
+}
+
+#phone_ico {
+    width: 18px;
+}
+
+.red_phone {
+    color: #e62d22;
+}
+
+#email {
+    font: 16px 'DINPro';
+}
+
+#first_row {
+    max-width: 1025px;
+    height: 86px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 79%;
+}
+
+#first_row_list {
+    list-style: none;
+    display: inline-block;
+}
+
+#first_row_list li {
+    display: inline-block;
+}
+
+#kontakt_list {
+    list-style: none;
+    display: block;
+}
+
+#kontakt_list li {
+    list-style: none;
+    display: block;
+}
+
+.kontakt_list_dot {
+    display: block;
+}
+
+#social_list li {
+    display: inline-block;
+}
