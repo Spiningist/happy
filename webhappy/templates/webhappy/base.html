@@ -7,12 +7,33 @@
     <script src="{% static 'webhappy/jquery-3.1.1.min.js' %}"></script>
     {% block script %}<script src="{% static 'webhappy/script.js' %}"></script> {% endblock %}
     <link rel="stylesheet" type="text/css" href="{% static 'webhappy/style.css' %}" />
-    <link rel="icon" href="{% static "bh2017/images/favicon-bitva.jpg"%}">
+    <link rel="icon" href="{% static "webhappy/images/happy.ico"%}">
     <title>{% block title %} Благотворительный фонд счастье {% endblock %}</title>
 </head>
 <body>
     <div id="attick">
-
+        <div id="top_line"></div>
+        <div id="first_row">
+            <ul id="first_row_list">
+                <li class="first_row_list_dot"><a href="{% url 'webhappy:index' %}"><img src="{% static 'webhappy/images/logo.png' %}"></a></li>
+                <li class="first_row_list_dot">
+                    <div class="fond_name"><span class="black_name">благотворительный фонд</span><br><span class="red_name"><q>счастье</q></span></div>
+                </li>
+                <li class="first_row_list_dot"></li>
+                <li class="first_row_list_dot">
+                    <ul id="kontakt_list">
+                        <li class="kontakt_list_dot"></li>
+                        <li class="kontakt_list_dot">
+                            <ul id="social_list">
+                                <li class="social_list_dot"></li>
+                                <li class="social_list_dot"></li>
+                                <li class="social_list_dot"></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
     </div>
 {% block sidebar %}
 {% endblock %}
