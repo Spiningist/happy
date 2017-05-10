@@ -10,130 +10,52 @@ $.ajaxSetup({
 
 var csrftoken = getCookie('csrftoken');
 
-    $( "input" ).prop('required',true);
-    $("form").submit(function(e) {
+var jssor_1_SlideshowTransitions = [
+              {$Duration:1200,x:-0.3,$During:{$Left:[0.3,0.7]},$Easing:{$Left:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+              {$Duration:1200,x:0.3,$SlideOut:true,$Easing:{$Left:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2}
+            ];
 
-    var ref = $(this).find("[required]");
+            var jssor_1_options = {
+              $AutoPlay: 1,
+              $SlideshowOptions: {
+                $Class: $JssorSlideshowRunner$,
+                $Transitions: jssor_1_SlideshowTransitions,
+                $TransitionsOrder: 1
+              },
+              $ArrowNavigatorOptions: {
+                $Class: $JssorArrowNavigator$
+              },
+              $BulletNavigatorOptions: {
+                $Class: $JssorBulletNavigator$
+              },
+              $ThumbnailNavigatorOptions: {
+                $Class: $JssorThumbnailNavigator$,
+                $Cols: 1,
+                $Align: 0,
+                $NoDrag: true
+              }
+            };
 
-    $(ref).each(function(){
-        if ( $(this).val() == '' )
-        {
-            alert("Все поля должны быть заполнены!");
+            var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
 
-            $(this).focus();
-
-            e.preventDefault();
-            return false;
-        }
-    });  return true;
-    });
-    $( "#id_email" ).change(function() {
-        //alert( "Handler for .click() called." );
-        var email = $("#id_email").val();
-        //alert(email);
-        $.post(
-              "/mailCheck/",
-          {
-                'email': email,
-          },
-            onAjaxSuccess
-                );
-     });
-     $("#loginWrap").click(function(){
-        //alert("BombardaMaxia");
-        $("#parent_popup").css('display','block');
-     });
-     $( "#id_passwordCheck" ).change(function() {
-        //alert( "Handler for .click() called." );
-        var A = $("#id_passwordCheck").val();
-        var B = $("#id_password").val();
-        if (A == B){
-            $( "#registrationButton" ).prop('disabled',false);
-            $( "#registrationButton" ).animate({
-                 width: "150px"
-             }, 50, function(){
-            $( "#registrationButton" ).attr('value','РЕГИСТРАЦИЯ');
-        });
-        }
-        else {
-            $( "#registrationButton" ).prop('disabled',true);
-            $( "#registrationButton" ).animate({
-                width: "236px"
-                }, 50, function(){
-            $( "#registrationButton" ).attr('value','Пароль и проверка пароля должны совпадать');
-                });
-        }
-      });
-      $("#fileway1").change(function(){
-      getFileName();
-      });
-      $("#fileway2").change(function(){
-      getFileName2();
-      });
-      $("#fileway3").change(function(){
-      getFileName3();
-      });
-      $("#fileway4").change(function(){
-      getFileName4();
-      });
-      $("#fileway5").change(function(){
-      getFileName5();
-      });
-      $("#fileway6").change(function(){
-      getFileName6();
-      });
-      $("#fileway7").change(function(){
-      getFileName7();
-      });
-      $("#nextButton").click(function( event ) {
-        event.preventDefault();
-        var link = $("#nextButton").attr('href');
-
-        jQuery.ajax({
-                'type': 'POST',
-                'url': '/loadmorepartner/'+link,
-                'data': {},
-                'success': function(data){
-                            var arr = data.split('///');
-                            $("#partnerList").append(arr[0]);
-                            $("#nextButton").attr('href',arr[1]);
-                            if (arr[1]=='Last')
-                            {
-                            $("#nextButton").hide();
-                            }
-                    }
-                });
-            });
-      $("#tasksAuthLogin").click(function(){
-        //alert("BombardaMaxia");
-        $("#parent_popup").css('display','block');
-     });
+            /*responsive code begin*/
+            /*remove responsive code if you don't want the slider scales while window resizing*/
+            function ScaleSlider() {
+                var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
+                if (refSize) {
+                    refSize = Math.min(refSize, 1290);
+                    jssor_1_slider.$ScaleWidth(refSize);
+                }
+                else {
+                    window.setTimeout(ScaleSlider, 30);
+                }
+            }
+            ScaleSlider();
+            $(window).bind("load", ScaleSlider);
+            $(window).bind("resize", ScaleSlider);
+            $(window).bind("orientationchange", ScaleSlider);
 });
 
-
-
-
-function onAjaxSuccess(data)
-{
-  // Здесь мы получаем данные, отправленные сервером и выводим их на экран.
-  //alert(data);
-  if (data == 'False'){
-    $( "#registrationButton" ).prop('disabled',true);
-    $( "#registrationButton" ).animate({
-        width: "300px"
-    }, 50, function(){
-    $( "#registrationButton" ).attr('value','Этот почтовый ящик уже занят');
-    });
-    }
-  else {
-    $( "#registrationButton" ).prop('disabled',false);
-    $( "#registrationButton" ).animate({
-        width: "150px"
-    }, 50, function(){
-    $( "#registrationButton" ).attr('value','РЕГИСТРАЦИЯ');
-    });
-  }
-}
 function loadingpartner(data)
 {
     alert('Bang');
@@ -159,74 +81,4 @@ function getCookie(name) {
  function csrfSafeMethod(method) {
     // these HTTP methods do not require CSRF protection
     return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
-}
-
-function getFileName () {
-
-var file = document.getElementById('fileway1').value;
-
-//file = file.replace(/\\/g, «/»).split('/').pop();
-
-document.getElementById ('fileName1').innerHTML = 'Имя файла: ' + file;
-
-}
-
-function getFileName2 () {
-
-var file = document.getElementById('fileway2').value;
-
-//file = file.replace(/\\/g, «/»).split('/').pop();
-
-document.getElementById ('fileName2').innerHTML = 'Имя файла: ' + file;
-
-}
-
-function getFileName3 () {
-
-var file = document.getElementById('fileway3').value;
-
-//file = file.replace(/\\/g, «/»).split('/').pop();
-
-document.getElementById ('fileName3').innerHTML = 'Имя файла: ' + file;
-
-}
-
-function getFileName4 () {
-
-var file = document.getElementById('fileway4').value;
-
-//file = file.replace(/\\/g, «/»).split('/').pop();
-
-document.getElementById ('fileName4').innerHTML = 'Имя файла: ' + file;
-
-}
-
-function getFileName5 () {
-
-var file = document.getElementById('fileway5').value;
-
-//file = file.replace(/\\/g, «/»).split('/').pop();
-
-document.getElementById ('fileName5').innerHTML = 'Имя файла: ' + file;
-
-}
-
-function getFileName6 () {
-
-var file = document.getElementById('fileway6').value;
-
-//file = file.replace(/\\/g, «/»).split('/').pop();
-
-document.getElementById ('fileName6').innerHTML = 'Имя файла: ' + file;
-
-}
-
-function getFileName7 () {
-
-var file = document.getElementById('fileway7').value;
-
-//file = file.replace(/\\/g, «/»).split('/').pop();
-
-document.getElementById ('fileName7').innerHTML = 'Имя файла: ' + file;
-
 }

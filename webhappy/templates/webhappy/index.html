@@ -3,5 +3,49 @@
 {% load static %}
 {% block title %} Благотворительный фонд Счастье {% endblock %}
 {% block content %}
-
+ <div id="slider_wrap">
+        <div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:1290px;height:595px;overflow:hidden;visibility:hidden;">
+        <!-- Loading Screen -->
+        <div data-u="loading" class="jssorl-006-tail-spin" style="position:absolute;top:0px;left:0px;text-align:center;background-color:rgba(0,0,0,0.7);">
+            <img style="margin-top:-19.0px;position:relative;top:50%;width:38px;height:38px;" src="{% static 'webhappy/images/slider/tail-spin.svg' %}" />
+        </div>
+        <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:1290px;height:595px;overflow:hidden;">
+            <div>
+                <img data-u="image" src="{% static 'webhappy/images/slider/01.jpg' %}" />
+                <div data-u="thumb">Do you notice it is draggable by mouse/finger?</div>
+            </div>
+            <div>
+                <img data-u="image" src="{% static 'webhappy/images/slider/02.jpg' %}" />
+                <div data-u="thumb">Did you drag by either horizontal or vertical?</div>
+            </div>
+            <div>
+                <img data-u="image" src="{% static 'webhappy/images/slider/03.jpg' %}" />
+                <div data-u="thumb">Do you notice navigator responses when drag?</div>
+            </div>
+            <div>
+                <img data-u="image" src="{% static 'webhappy/images/slider/04.jpg' %}" />
+                <div data-u="thumb">Do you notice arrow responses when click?</div>
+            </div>
+            <a data-u="any" href="https://www.jssor.com/alexei0eremin/banner-slider.slider" style="display:none">carousel slider</a>
+        </div>
+        <!-- Thumbnail Navigator -->
+        <div data-u="thumbnavigator" class="jssort09-205-50" style="position:absolute;bottom:140px;left:542px;width:205px;height:50px;" data-autocenter="1">
+            <div style="position:absolute;top:0;left:0;width:100%;height:100%;background-color:#000;filter:alpha(opacity=40.0);opacity:0.4;"></div>
+            <!-- Thumbnail Item Skin Begin -->
+            <div data-u="slides" style="cursor: default;">
+                <div data-u="prototype" class="p">
+                    <div data-u="thumbnailtemplate" class="t"></div>
+                </div>
+            </div>
+            <!-- Thumbnail Item Skin End -->
+        </div>
+        <!-- Bullet Navigator -->
+        <div data-u="navigator" class="jssorb01" style="bottom:90px;right:16px;" data-autocenter="1">
+            <div data-u="prototype" style="width:12px;height:12px;"></div>
+        </div>
+        <!-- Arrow Navigator -->
+        <span data-u="arrowleft" class="jssora05l" style="top:0px;left:8px;width:40px;height:40px;" data-autocenter="2"></span>
+        <span data-u="arrowright" class="jssora05r" style="top:0px;right:8px;width:40px;height:40px;" data-autocenter="2"></span>
+        </div>
+    </div>
 {% endblock %}

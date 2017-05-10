@@ -5,9 +5,10 @@
 <head>
     <meta charset="UTF-8">
     <script src="{% static 'webhappy/jquery-3.1.1.min.js' %}"></script>
+    <script src="{% static 'webhappy/jssor.slider-23.1.6.min.js' %}"></script>
     {% block script %}<script src="{% static 'webhappy/script.js' %}"></script> {% endblock %}
     <link rel="stylesheet" type="text/css" href="{% static 'webhappy/style.css' %}" />
-    <link rel="icon" href="{% static "webhappy/images/happy.ico"%}">
+    <link rel="icon" href="{% static 'webhappy/images/happy.ico'%}">
     <title>{% block title %} Благотворительный фонд счастье {% endblock %}</title>
 </head>
 <body>
@@ -54,9 +55,7 @@
             </nav>
         </div>
     </div>
-    <div id="slider_wrap">
 
-    </div>
 {% block content %}
 {% endblock %}
 </body>
