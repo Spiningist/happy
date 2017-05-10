@@ -20,3 +20,12 @@ class MainPage(models.Model):
 
     def __unicode__(self):  # __unicode__ on Python 2
         return unicode(self.name_of_page) or u''
+
+class Slider(models.Model):
+    number = models.IntegerField(default=0)
+    img = models.FileField(upload_to='slider')
+    link = models.CharField(max_length=100, default='https://www.instagram.com/fond_schastie/')
+    name = models.CharField(max_length=50, default='Слайдер №')
+
+    def __unicode__(self):  # __unicode__ on Python 2
+        return unicode(self.name) or u''

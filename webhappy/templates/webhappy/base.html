@@ -38,9 +38,25 @@
                 </li>
             </ul>
         </div>
+        <div id="menu_wrap">
+            <nav id="menu">
+                <ul id="menu_list">
+                    {% block sidebar %}
+                    <li><a class="menu_none"><span class="red_phone">о</span> фонде</a></li>
+                    <li><a class="menu_none"><span class="red_phone">ч</span>то мы делаем</a></li>
+                    <li><a class="menu_none"><span class="red_phone">н</span>овости</a></li>
+                    <li><a class="menu_none"><span class="red_phone">мы</span> опекаем</a></li>
+                    <li><a class="menu_none"><span class="red_phone">к</span>ак помочь</a></li>
+                    <li><a class="menu_none"><span class="red_phone">к</span>онтакты</a></li>
+                    <li class="helper"></li>
+                    {% endblock %}
+                </ul>
+            </nav>
+        </div>
     </div>
-{% block sidebar %}
-{% endblock %}
+    <div id="slider_wrap">
+
+    </div>
 {% block content %}
 {% endblock %}
 </body>
