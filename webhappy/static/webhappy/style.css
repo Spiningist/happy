@@ -260,3 +260,16 @@ ul li.helper {
     max-width: 1290px;
     width: 1290px;
 }
+
+#slider_line_wrap{
+    position: absolute;
+    margin-top: -142px;
+    width: 1290px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.slider_button {
+    color: black;
+}

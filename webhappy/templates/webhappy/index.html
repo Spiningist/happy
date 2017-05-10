@@ -4,6 +4,7 @@
 {% block title %} Благотворительный фонд Счастье {% endblock %}
 {% block content %}
  <div id="slider_wrap">
+
         <div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:1290px;height:595px;overflow:hidden;visibility:hidden;">
         <!-- Loading Screen -->
         <div data-u="loading" class="jssorl-006-tail-spin" style="position:absolute;top:0px;left:0px;text-align:center;background-color:rgba(0,0,0,0.7);">
@@ -12,19 +13,19 @@
         <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:1290px;height:595px;overflow:hidden;">
             <div>
                 <img data-u="image" src="{% static 'webhappy/images/slider/01.jpg' %}" />
-                <div data-u="thumb">Do you notice it is draggable by mouse/finger?</div>
+                <div data-u="thumb" class="slider_button">Do you notice it is draggable by mouse/finger?</div>
             </div>
             <div>
                 <img data-u="image" src="{% static 'webhappy/images/slider/02.jpg' %}" />
-                <div data-u="thumb">Did you drag by either horizontal or vertical?</div>
+                <div data-u="thumb" class="slider_button">Did you drag by either horizontal or vertical?</div>
             </div>
             <div>
                 <img data-u="image" src="{% static 'webhappy/images/slider/03.jpg' %}" />
-                <div data-u="thumb">Do you notice navigator responses when drag?</div>
+                <div data-u="thumb" class="slider_button">Do you notice navigator responses when drag?</div>
             </div>
             <div>
                 <img data-u="image" src="{% static 'webhappy/images/slider/04.jpg' %}" />
-                <div data-u="thumb">Do you notice arrow responses when click?</div>
+                <div data-u="thumb" class="slider_button">Do you notice arrow responses when click?</div>
             </div>
             <a data-u="any" href="https://www.jssor.com/alexei0eremin/banner-slider.slider" style="display:none">carousel slider</a>
         </div>
@@ -47,5 +48,10 @@
         <span data-u="arrowleft" class="jssora05l" style="top:0px;left:8px;width:40px;height:40px;" data-autocenter="2"></span>
         <span data-u="arrowright" class="jssora05r" style="top:0px;right:8px;width:40px;height:40px;" data-autocenter="2"></span>
         </div>
-    </div>
+        <div id="slider_line_wrap">
+            <img data-u="image" src="{% static 'webhappy/images/sliderline.png' %}" />
+        </div>
+
+ </div>
+
 {% endblock %}
