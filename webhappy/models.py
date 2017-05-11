@@ -3,6 +3,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from tinymce.models import HTMLField
 
 class MainPage(models.Model):
     name_of_page = models.CharField(max_length=50, default='Главная страница и общая информация')
@@ -13,7 +14,7 @@ class MainPage(models.Model):
     youtube = models.CharField(max_length=100, default='https://www.youtube.com/channel/UC20_z5bq_QyONSbVNtb3EVg')
     fb = models.CharField(max_length=100, default='https://www.facebook.com/fond.schastie/')
     insta = models.CharField(max_length=100, default='https://www.instagram.com/fond_schastie/')
-    words = models.CharField(max_length=1000, default=' ')
+    words = HTMLField(max_length=1000, default=' ')
     title = models.CharField(max_length=100, default=' ')
     name = models.CharField(max_length=100, default='Диана Менинбаева')
     photo = models.FileField(upload_to='media/CEO', default="")

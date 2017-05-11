@@ -53,5 +53,48 @@
         </div>
 
  </div>
+<div id="ceo_words_wrap">
+    <ul id="ceodors_list">
+        <li>
+            <div id="ceo_photo_wrap">
+                <img src="{{ index_page.photo.url }}">
+            </div>
+        </li>
+        <li>
+            <ul id="words_list">
+                <li>
+                    <div id="words_head">
+                        <span>слово президента фонда</span>
+                    </div>
+                </li>
+                <li>
+                    <div id="words">
+                            {{ index_page.words|safe }}
+                    </div>
+                </li>
+                <li>
+                    <ul id="words_title_name_list">
+                        <li>
+                            <div id="words_title">
+                                <p>
+                                    {{ index_page.title }}
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div id="words_name">
+                                <p>
+                                    {{ index_page.name }}
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+</div>
+
 
 {% endblock %}
