@@ -30,3 +30,12 @@ class Slider(models.Model):
 
     def __unicode__(self):  # __unicode__ on Python 2
         return unicode(self.name) or u''
+
+class Partner(models.Model):
+    name = models.CharField(max_length=50, default='Партнер №')
+    link = models.CharField(max_length=100, default='https://www.instagram.com/fond_schastie/')
+    img = models.FileField(upload_to='media/parner')
+    number = models.IntegerField(default=0)
+
+    def __unicode__(self):  # __unicode__ on Python 2
+        return unicode(self.name) or u''

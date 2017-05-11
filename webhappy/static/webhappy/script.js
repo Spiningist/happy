@@ -1,12 +1,12 @@
  $(document).ready(function() {
 
-$.ajaxSetup({
-    beforeSend: function(xhr, settings) {
-        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+    $.ajaxSetup({
+        beforeSend: function(xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            }
         }
-    }
-});
+    });
 
 var csrftoken = getCookie('csrftoken');
 
@@ -54,6 +54,12 @@ var jssor_1_SlideshowTransitions = [
             $(window).bind("load", ScaleSlider);
             $(window).bind("resize", ScaleSlider);
             $(window).bind("orientationchange", ScaleSlider);
+
+            $('.partners_slick').slick({
+                infinite: true,
+                slidesToShow: 6,
+                slidesToScroll: 6
+            });
 });
 
 function loadingpartner(data)

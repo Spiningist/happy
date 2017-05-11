@@ -4,8 +4,12 @@
 {% load static %}
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'webhappy/slick.css' %}"/>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'webhappy/slick-theme.css' %}"/>
     <script src="{% static 'webhappy/jquery-3.1.1.min.js' %}"></script>
     <script src="{% static 'webhappy/jssor.slider-23.1.6.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'webhappy/slick.js' %}"></script>
     {% block script %}<script src="{% static 'webhappy/script.js' %}"></script> {% endblock %}
     <link rel="stylesheet" type="text/css" href="{% static 'webhappy/style.css' %}" />
     <link rel="icon" href="{% static 'webhappy/images/happy.ico'%}">
@@ -59,4 +63,30 @@
 {% endblock %}
 </body>
 <footer>
+    <div id="sqd_footer_wrap">
+        {% if partner %}
+        <div id="partners_title">
+            <ul id="partners_title_list">
+                <li>
+                    <img src="{% static 'webhappy/images/partner_title_left.png' %}">
+                </li>
+                <li>
+                    <div id="partners_fond_word">
+                        <span >партнеры фонда</span>
+                    </div>
+                </li>
+                <li>
+                    <img src="{% static 'webhappy/images/partner_title_right.png' %}">
+                </li>
+            </ul>
+        </div>
+        <div id="partner_slick_wrap">
+            <div class="partners_slick">
+                {% for part in partner %}
+                <div class="slick_try"><a href="{{ part.link }}"><img src="{{ part.img.url }}"></a></div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+    </div>
 </footer>
