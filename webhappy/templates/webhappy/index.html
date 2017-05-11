@@ -12,26 +12,26 @@
         </div>
         <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:1290px;height:595px;overflow:hidden;">
             <div>
-                <img data-u="image" src="{% static 'webhappy/images/slider/01.jpg' %}" />
-                <div data-u="thumb" class="slider_button">Do you notice it is draggable by mouse/finger?</div>
+                <img data-u="image" src="{{ slider.0.img.url }}" />
+                <div data-u="thumb" class="slider_button"><a href="">перейти</a>></div>
             </div>
             <div>
-                <img data-u="image" src="{% static 'webhappy/images/slider/02.jpg' %}" />
-                <div data-u="thumb" class="slider_button">Did you drag by either horizontal or vertical?</div>
+                <img data-u="image" src="{{ slider.1.img.url }}" />
+                <div data-u="thumb" class="slider_button">перейти</div>
             </div>
             <div>
-                <img data-u="image" src="{% static 'webhappy/images/slider/03.jpg' %}" />
-                <div data-u="thumb" class="slider_button">Do you notice navigator responses when drag?</div>
+                <img data-u="image" src="{{ slider.2.img.url }}" />
+                <div data-u="thumb" class="slider_button">перейти</div>
             </div>
             <div>
-                <img data-u="image" src="{% static 'webhappy/images/slider/04.jpg' %}" />
-                <div data-u="thumb" class="slider_button">Do you notice arrow responses when click?</div>
+                <img data-u="image" src="{{ slider.3.img.url }}" />
+                <div data-u="thumb" class="slider_button">перейти</div>
             </div>
             <a data-u="any" href="https://www.jssor.com/alexei0eremin/banner-slider.slider" style="display:none">carousel slider</a>
         </div>
         <!-- Thumbnail Navigator -->
-        <div data-u="thumbnavigator" class="jssort09-205-50" style="position:absolute;bottom:140px;left:542px;width:205px;height:50px;" data-autocenter="1">
-            <div style="position:absolute;top:0;left:0;width:100%;height:100%;background-color:#000;filter:alpha(opacity=40.0);opacity:0.4;"></div>
+        <div data-u="thumbnavigator" class="jssort09-205-50" style="position:absolute;bottom:140px;left:542px;width:205px;height:50px; border-radius: 50px 50px;" data-autocenter="1">
+            <div style="position:absolute;top:0;left:0;width:100%;height:100%;background-color:#000;filter:alpha(opacity=40.0);opacity:0.4; border-radius: 50px 50px;"></div>
             <!-- Thumbnail Item Skin Begin -->
             <div data-u="slides" style="cursor: default;">
                 <div data-u="prototype" class="p">

@@ -16,14 +16,14 @@ class MainPage(models.Model):
     words = models.CharField(max_length=1000, default=' ')
     title = models.CharField(max_length=100, default=' ')
     name = models.CharField(max_length=100, default='Диана Менинбаева')
-    photo = models.FileField(upload_to='CEO', default="")
+    photo = models.FileField(upload_to='media/CEO', default="")
 
     def __unicode__(self):  # __unicode__ on Python 2
         return unicode(self.name_of_page) or u''
 
 class Slider(models.Model):
     number = models.IntegerField(default=0)
-    img = models.FileField(upload_to='slider')
+    img = models.FileField(upload_to='media/slider')
     link = models.CharField(max_length=100, default='https://www.instagram.com/fond_schastie/')
     name = models.CharField(max_length=50, default='Слайдер №')
 
