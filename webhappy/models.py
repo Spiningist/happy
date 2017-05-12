@@ -18,6 +18,7 @@ class MainPage(models.Model):
     title = models.CharField(max_length=100, default=' ')
     name = models.CharField(max_length=100, default='Диана Менинбаева')
     photo = models.FileField(upload_to='media/CEO', default="")
+    ps = HTMLField(max_length=1000, default=' ')
 
     def __unicode__(self):  # __unicode__ on Python 2
         return unicode(self.name_of_page) or u''

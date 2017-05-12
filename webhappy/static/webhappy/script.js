@@ -60,6 +60,8 @@ var jssor_1_SlideshowTransitions = [
                 slidesToShow: 6,
                 slidesToScroll: 6
             });
+
+            $('#ps_wrap').css( "font", "15px 'DINPro'" );
 });
 
 function loadingpartner(data)

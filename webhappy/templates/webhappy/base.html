@@ -63,6 +63,13 @@
 {% endblock %}
 </body>
 <footer>
+    <div id="footer_break_line">
+        <div id="low_link">
+            <div id="low_name">благотворительный фонд <q>счастье</q></div>
+            <div id="low_phone"><img class="low_ico" id="phone_ico_low" src="{% static 'webhappy/images/low_phone.png' %}"><a id="head_phone_link_low" href="tel:{{ index_page.phone_country}}{{ index_page.phone_code }}{{ index_page.phone_number }}">{{ index_page.phone_country }} ({{ index_page.phone_code }}) {{ index_page.phone_number }}</a></div>
+            <div id="low_email"><img class="low_ico" id="email_ico_low" src="{% static 'webhappy/images/low_email.png' %}">{{ index_page.email }}</div>
+        </div>
+    </div>
     <div id="sqd_footer_wrap">
         {% if partner %}
         <div id="partners_title">
@@ -88,5 +95,51 @@
             </div>
         </div>
         {% endif %}
+        <div id="footer_line">
+            <ul id="footer_list">
+                <li class="footer_list_dot">
+                    <div id="ps_wrap">
+                    {{ index_page.ps|safe }}
+                    </div>
+                </li>
+                <li class="footer_list_dot">
+                    <ul class="menu_footer_row">
+                        <li>
+                            <ul class="menu_footer_colums">
+                                <li>
+                                    <ul class="tulip_menu">
+                                        <li class="footer_menu"><a class="menu_none">о фонде</a></li>
+                                        <li class="footer_menu"><a class="menu_none">что мы делаем</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <ul class="tulip_menu">
+                                        <li class="footer_menu"><a class="menu_none">новости</a></li>
+                                        <li class="footer_menu"><a class="menu_none">мы опекаем</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <ul class="tulip_menu">
+                                        <li class="footer_menu"><a class="menu_none">как помочь</a></li>
+                                        <li class="footer_menu"><a class="menu_none">контакты</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <ul class="social_footer">
+                                <li id="social_intro">Мы в соцсетях: </li>
+                                <li><a href="{{ index_page.fb }}"><img src="{% static 'webhappy/images/fb_footer.png' %}"></a></li>
+                                <li><a href="{{ index_page.insta }}"><img src="{% static 'webhappy/images/fb_footer.png' %}"></a></li>
+                                <li><a href="{{ index_page.youtube }}"><img src="{% static 'webhappy/images/youtube_footer.png' %}"></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div id="copy">
+            made by RPK Presscorp
+        </div>
     </div>
 </footer>
