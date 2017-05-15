@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'webhappy/slick.css' %}"/>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'webhappy/slick-theme.css' %}"/>
+    <script src="{% static 'webhappy/jquery-3.1.1.min.js' %}"></script>
+    <script src="{% static 'webhappy/jssor.slider-23.1.6.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'webhappy/slick.js' %}"></script>
+    {% block script %}<script src="{% static 'webhappy/script.js' %}"></script> {% endblock %}
+    <link rel="stylesheet" type="text/css" href="{% static 'webhappy/style.css' %}" />
+    <link rel="icon" href="{% static 'webhappy/images/happy.ico'%}">
+    <title>{% block title %} Благотворительный фонд счастье {% endblock %}</title>
+</head>
+<body>
+    <div id="attick">
+        <div id="top_line"></div>
+        <div id="first_row">
+            <ul id="first_row_list">
+                <li class="first_row_list_dot"><a href="{% url 'webhappy:index' %}"><img src="{% static 'webhappy/images/logo.png' %}"></a></li>
+                <li class="first_row_list_dot">
+                    <div class="fond_name"><span class="black_name">благотворительный фонд</span><br><span class="red_name"><q>счастье</q></span></div>
+                </li>
+                <li class="first_row_list_dot">
+                    <div class="phone_wrap">
+                        <img id="phone_ico" src="{% static 'webhappy/images/phone.png' %}"><a id="head_phone_link" href="tel:{{ index_page.phone_country}}{{ index_page.phone_code }}{{ index_page.phone_number }}"><span class="black_phone">{{ index_page.phone_country }}</span><span class="red_phone"> ({{ index_page.phone_code }}) </span><span class="black_phone"> {{ index_page.phone_number }}</span></a>
+                    </div>
+                </li>
+                <li class="first_row_list_dot">
+                    <ul id="kontakt_list">
+                        <li class="kontakt_list_dot">
+                            <ul id="social_list">
+                                <li class="social_list_dot"><a href="{{ index_page.fb }}"><img src="{% static 'webhappy/images/fb.png' %}"></a></li>
+                                <li class="social_list_dot"><a href="{{ index_page.insta }}"><img src="{% static 'webhappy/images/inst.png' %}"></a></li>
+                                <li class="social_list_dot"><a href="{{ index_page.youtube }}"><img src="{% static 'webhappy/images/youtube.png' %}"></a></li>
+                            </ul>
+                        </li>
+                        <li class="kontakt_list_dot"><div id="email">{{ index_page.email }}</div></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div id="menu_wrap">
+            <nav id="menu">
+                <ul id="menu_list">
+                    {% block sidebar %}
+                    <li><a href="{% url 'webhappy:about' %}" class="menu_none"><span class="red_phone">о</span> фонде</a></li>
+                    <li><a href="{% url 'webhappy:what_we_do' %}" class="menu_none"><span class="red_phone">ч</span>то мы делаем</a></li>
+                    <li><a href="{% url 'webhappy:news' %}"class="menu_none"><span class="red_phone">н</span>овости</a></li>
+                    <li><a href="{% url 'webhappy:we_cares' %}"class="menu_none"><span class="red_phone">мы</span> опекаем</a></li>
+                    <li><a href="{% url 'webhappy:help' %}"class="menu_none"><span class="red_phone">к</span>ак помочь</a></li>
+                    <li><a href="{% url 'webhappy:contacts' %}"class="menu_none"><span class="red_phone">к</span>онтакты</a></li>
+                    <li class="helper"></li>
+                    {% endblock %}
+                </ul>
+            </nav>
+        </div>
+    </div>
+{% block content %}
+{% endblock %}
+</body>
+<footer>
+    <div id="footer_break_line">
+        <div id="low_link">
+            <div id="low_name">благотворительный фонд <q>счастье</q></div>
+            <div id="low_phone"><img class="low_ico" id="phone_ico_low" src="{% static 'webhappy/images/low_phone.png' %}"><a id="head_phone_link_low" href="tel:{{ index_page.phone_country}}{{ index_page.phone_code }}{{ index_page.phone_number }}">{{ index_page.phone_country }} ({{ index_page.phone_code }}) {{ index_page.phone_number }}</a></div>
+            <div id="low_email"><img class="low_ico" id="email_ico_low" src="{% static 'webhappy/images/low_email.png' %}">{{ index_page.email }}</div>
+        </div>
+    </div>
+    <div id="sqd_footer_wrap">
+        {% if partner %}
+        <div id="partners_title">
+            <ul id="partners_title_list">
+                <li>
+                    <img src="{% static 'webhappy/images/partner_title_left.png' %}">
+                </li>
+                <li>
+                    <div id="partners_fond_word">
+                        <span >партнеры фонда</span>
+                    </div>
+                </li>
+                <li>
+                    <img src="{% static 'webhappy/images/partner_title_right.png' %}">
+                </li>
+            </ul>
+        </div>
+        <div id="partner_slick_wrap">
+            <div class="partners_slick">
+                {% for part in partner %}
+                <div class="slick_try"><a href="{{ part.link }}"><img src="{{ part.img.url }}"></a></div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+        <div id="footer_line">
+            <ul id="footer_list">
+                <li class="footer_list_dot">
+                    <div id="ps_wrap">
+                    {{ index_page.ps|safe }}
+                    </div>
+                </li>
+                <li class="footer_list_dot">
+                    <ul class="menu_footer_row">
+                        <li>
+                            <ul class="menu_footer_colums">
+                                <li>
+                                    <ul class="tulip_menu">
+                                        <li class="footer_menu"><a href="{% url 'webhappy:about' %}" class="menu_none">о фонде</a></li>
+                                        <li class="footer_menu"><a href="{% url 'webhappy:what_we_do' %}" class="menu_none">что мы делаем</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <ul class="tulip_menu">
+                                        <li class="footer_menu"><a href="{% url 'webhappy:news' %}" class="menu_none">новости</a></li>
+                                        <li class="footer_menu"><a href="{% url 'webhappy:we_cares' %}" class="menu_none">мы опекаем</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <ul class="tulip_menu">
+                                        <li class="footer_menu"><a href="{% url 'webhappy:help' %}" class="menu_none">как помочь</a></li>
+                                        <li class="footer_menu"><a href="{% url 'webhappy:contacts' %}" class="menu_none">контакты</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <ul class="social_footer">
+                                <li id="social_intro">Мы в соцсетях: </li>
+                                <li><a href="{{ index_page.fb }}"><img src="{% static 'webhappy/images/fb_footer.png' %}"></a></li>
+                                <li><a href="{{ index_page.insta }}"><img src="{% static 'webhappy/images/instagram_footer.png' %}"></a></li>
+                                <li><a href="{{ index_page.youtube }}"><img src="{% static 'webhappy/images/youtube_footer.png' %}"></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div id="copy">
+            made by RPK Presscorp
+        </div>
+    </div>
+</footer>
