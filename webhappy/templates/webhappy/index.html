@@ -130,6 +130,13 @@
         <li><img src="{% static 'webhappy/images/wwd_right.png' %}"></li>
     </ul>
     {% if videos %}
+    <div id="video_slick_wrap">
+            <div class="video_slick">
+                {% for video in videos %}
+                <div class="video_slick_try"><a href="{{ video.link }}"><img src="{{ video.cover }}"></a><div class="video_name"> {{ video.name }}</div></div>
+                {% endfor %}
+            </div>
+    </div>
     {% else %}
         <div>Здесь еще пусто</div>
     {% endif %}

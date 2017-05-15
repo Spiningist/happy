@@ -61,6 +61,12 @@ var jssor_1_SlideshowTransitions = [
                 slidesToScroll: 6
             });
 
+            $('.video_slick').slick({
+                infinite: true,
+                slidesToShow: 4,
+                slidesToScroll: 4
+            });
+
             $('#ps_wrap').css( "font", "15px 'DINPro'" );
 });
 

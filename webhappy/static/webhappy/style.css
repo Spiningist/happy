@@ -279,6 +279,9 @@ a:hover { text-decoration: underline; }
 
 #ceo_words_wrap {
     margin-top: 100px;
+    width: 1290px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #words_head {
@@ -583,6 +586,9 @@ h1 {
 
 #wwd_wrap {
     min-width: 1070px;
+    width: 1290px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #wwd_text_list{
@@ -604,4 +610,55 @@ h1 {
 
 .butt_link:hover {
     text-decoration: underline;
+}
+
+#video_slick_wrap {
+    max-width: 1024px;
+    width: 79%;
+    min-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+}
+
+.video_slick {
+    max-width: 1024px;
+}
+
+.video_slick_try {
+    width:216px;
+    height 132px;
+    background-color: #fff;
+    border-radius: 10px 10px;
+    margin: 0 24px;
+}
+
+.video_slick img {
+    height: 132px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 216px;
+}
+
+#video_slick_wrap .slick-prev:before {
+    color: #e62d22;
+}
+
+#video_slick_wrap .slick-next:before {
+    color: #e62d22;
+}
+
+#youtube_wrap {
+    margin-bottom: -110px;
+}
+
+.video_name {
+    font: 18px 'DINPro';
+    margin-top: 10px;
+}
+
+#youtube_wrap {
+    width: 1290px;
+    margin-left: auto;
+    margin-right: auto;
 }

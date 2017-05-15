@@ -51,8 +51,9 @@ class Wwd(models.Model):
 
 class Video(models.Model):
     name = models.CharField(max_length=50, default='Счастье is - ')
-    img = models.FileField(upload_to='media/videos_cover')
+    img = models.FileField(upload_to='media/videos_cover', blank=True)
     link = models.CharField(max_length=150, default='https://www.youtube.com/channel/UC20_z5bq_QyONSbVNtb3EVg')
+    cover = models.CharField(max_length=150, default='https://img.youtube.com/vi/wi9Oz75dvI0/0.jpg')
 
     def __unicode__(self):  # __unicode__ on Python 2
         return unicode(self.name) or u''
