@@ -26,7 +26,19 @@ SECRET_KEY = key.key
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    '127.0.0.1:4343',
+    'http://fond-schastie.ru',
+    'fond-schastie.ru',
+    'www.fond-schastie.ru',
+    'www.fond-schastie.ru:80',
+    'http://www.xn----8sbkg0bfybjm2b1d.xn--p1ai',
+    'www.xn----8sbkg0bfybjm2b1d.xn--p1ai',
+    '138.201.116.120',
+    'fondhappy.ru',
+    'www.fondhappy.ru',
+]
 
 
 # Application definition
@@ -122,7 +134,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

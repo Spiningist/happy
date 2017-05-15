@@ -234,6 +234,11 @@ body {
 
 .menu_current {
     border-bottom: 3px solid #e62d22; /* Линия слева от текста */
+    text-decoration: none;
+}
+
+.menu_current:visited {
+    color: black;
 }
 
 #menu_list li{
@@ -603,6 +608,10 @@ h1 {
     margin-left: 15px;
 }
 
+.butt_link {
+    text-decoration: none;
+}
+
 .butt_link:visited {
     text-decoration: none;
     color: #fff;
@@ -661,4 +670,14 @@ h1 {
     width: 1290px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.menu_none {
+    text-decoration: none;
+    color: black;
+}
+
+.menu_none:visited {
+    color: black;
+    text-decoration: none;
 }

@@ -1,0 +1,17 @@
+{% extends 'webhappy/base.html'%}
+{% load staticfiles %}
+{% load static %}
+{% block script %}<script src="{% static 'webhappy/script_common.js' %}"></script> {% endblock %}
+{% block title %} Благотворительный фонд Счастье {% endblock %}
+{% block sidebar %}
+                    <li><a href="{% url 'webhappy:about' %}" class="menu_current"><span class="red_phone">о</span> фонде</a></li>
+                    <li><a href="{% url 'webhappy:what_we_do' %}" class="menu_none"><span class="red_phone">ч</span>то мы делаем</a></li>
+                    <li><a href="{% url 'webhappy:news' %}"class="menu_none"><span class="red_phone">н</span>овости</a></li>
+                    <li><a href="{% url 'webhappy:we_cares' %}"class="menu_none"><span class="red_phone">мы</span> опекаем</a></li>
+                    <li><a href="{% url 'webhappy:help' %}"class="menu_none"><span class="red_phone">к</span>ак помочь</a></li>
+                    <li><a href="{% url 'webhappy:contacts' %}"class="menu_none"><span class="red_phone">к</span>онтакты</a></li>
+                    <li class="helper"></li>
+{% endblock %}
+{% block content %}
+<div><h1>About</h1></div>
+{% endblock %}
