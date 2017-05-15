@@ -93,8 +93,47 @@
             </ul>
         </li>
     </ul>
-
 </div>
+<div id="wwd_wrap">
+    <ul class="wwd_head_list">
+        <li><img src="{% static 'webhappy/images/wwd_left.png' %}"></li>
+        <li><h1>что мы делаем</h1></li>
+        <li><img src="{% static 'webhappy/images/wwd_right.png' %}"></li>
+    </ul>
+    {% if wwd %}
+        <ul id="wwd_list">
+            {% for act in wwd %}
+            <li class="wwd_list_dot">
+                <ul class="wwd_list_dot_list">
+                    <li><div class="wwd_ico_wrap"><img src="{{ act.img.url }}"></div></li>
+                    <li class="wwd_name">{{ act.name }}</li>
 
+                </ul>
+            </li>
+
+            {% endfor %}
+        </ul>
+        <ul id="wwd_text_list">
+            {% for act in wwd %}
+            <li calss="wwd_text">{{ act.text|safe }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <div>Здесь еще пусто</div>
+    {% endif %}
+    <div class="button"><a class="butt_link" href="/"><span>программы фонда</span></a></div>
+</div>
+<div id="youtube_wrap">
+    <ul class="wwd_head_list">
+        <li><img src="{% static 'webhappy/images/wwd_left.png' %}"></li>
+        <li><h1>счасть is...</h1></li>
+        <li><img src="{% static 'webhappy/images/wwd_right.png' %}"></li>
+    </ul>
+    {% if videos %}
+    {% else %}
+        <div>Здесь еще пусто</div>
+    {% endif %}
+    <div class="button"><a class="butt_link" href="https://www.youtube.com/channel/UC20_z5bq_QyONSbVNtb3EVg"><span>посмотреть все</span></a></div>
+</div>
 
 {% endblock %}

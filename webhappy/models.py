@@ -40,3 +40,19 @@ class Partner(models.Model):
 
     def __unicode__(self):  # __unicode__ on Python 2
         return unicode(self.name) or u''
+
+class Wwd(models.Model):
+    name = models.CharField(max_length=50, default='Что мы делаем?')
+    img = models.FileField(upload_to='media/wwd_ico')
+    text = HTMLField(max_length=1000, default='Задачей программ явлеяется целевые проекты и социальная поддержка населения')
+
+    def __unicode__(self):  # __unicode__ on Python 2
+        return unicode(self.name) or u''
+
+class Video(models.Model):
+    name = models.CharField(max_length=50, default='Счастье is - ')
+    img = models.FileField(upload_to='media/videos_cover')
+    link = models.CharField(max_length=150, default='https://www.youtube.com/channel/UC20_z5bq_QyONSbVNtb3EVg')
+
+    def __unicode__(self):  # __unicode__ on Python 2
+        return unicode(self.name) or u''

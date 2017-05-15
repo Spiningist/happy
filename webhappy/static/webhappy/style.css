@@ -521,3 +521,87 @@ a:hover { text-decoration: underline; }
 .low_ico {
     margin-right: 10px;
 }
+
+.wwd_head_list li {
+    list-style: none;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+h1 {
+    font: 48px 'Stripe-Black';
+    text-transform: uppercase;
+    padding: 0 30px;
+}
+
+.button {
+    width: 229px;
+    height: 45px;
+    background: #e62d22;
+    background: linear-gradient(to right, #e62d22, #e70283);
+    border-radius: 50px 50px;
+    color: #fff;
+    text-transform: uppercase;
+    font: 18px 'DINPro-Bold';
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.button span {
+    vertical-align: -10px;
+}
+
+.wwd_ico_wrap {
+    width: 130px;
+    height: 129px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wwd_name {
+    font: 24px 'Leo';
+    color: #e62d22;
+    text-transform: uppercase;
+    padding-top: 24px;
+}
+
+.wwd_list_dot_list li {
+    list-style: none;
+    max-width: 213px;
+}
+
+.wwd_text {
+    max-width: 213px;
+    padding-top: 40px;
+}
+
+.wwd_list_dot {
+    list-style: none;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#wwd_wrap {
+    min-width: 1070px;
+}
+
+#wwd_text_list{
+    padding-left: 25px;
+}
+
+#wwd_text_list li {
+    max-width: 230px;
+    list-style: none;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 15px;
+}
+
+.butt_link:visited {
+    text-decoration: none;
+    color: #fff;
+}
+
+.butt_link:hover {
+    text-decoration: underline;
+}
