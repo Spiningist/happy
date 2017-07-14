@@ -57,3 +57,12 @@ class Video(models.Model):
 
     def __unicode__(self):  # __unicode__ on Python 2
         return unicode(self.name) or u''
+
+class How_to_help(models.Model):
+    name = models.CharField(max_length=200, default='Благотворительная акция Банан')
+    img = models.FileField(upload_to='media/how_to_help', blank=True)
+    text = HTMLField(max_length=2000,
+                     default='Задачей программ явлеяется целевые проекты и социальная поддержка населения')
+
+    def __unicode__(self):  # __unicode__ on Python 2
+        return unicode(self.name) or u''

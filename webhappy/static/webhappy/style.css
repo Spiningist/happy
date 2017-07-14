@@ -681,3 +681,43 @@ h1 {
     color: black;
     text-decoration: none;
 }
+
+.red_bold {
+    font: 24px 'DINPro-Bold';
+    color: #e62d22;
+}
+
+.hth_text_dot {
+    font: 20px 'DINPro';
+    text-align: left;
+}
+
+.hth_border {
+    font: 20px 'DINPro';
+    background-color: #e62d22;
+    color: white;
+    padding: 3px 10px;
+    border-radius: 15px 15px;
+}
+
+.hth_img_wrap {
+    width: 253px;
+    height: 276px;
+}
+
+.hth_img {
+    width: 100%;
+}
+
+.hth_list_dot {
+   list-style: none;
+   display: inline-flex;
+}
+
+.hth_text_dot {
+    list-style: none;
+}
+
+.hth_img_dot {
+    list-style: none;
+}

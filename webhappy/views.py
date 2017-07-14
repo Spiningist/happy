@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from django.shortcuts import render
-from .models import MainPage, Slider, Partner, Wwd, Video
+from .models import MainPage, Slider, Partner, Wwd, Video, How_to_help
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 
@@ -59,8 +59,10 @@ def we_cares(request):
 def help(request):
     index_page = MainPage.objects.all()
     partner = Partner.objects.order_by('number')
+    hth = How_to_help.objects.all()
     return render(request, 'webhappy/help.html', { 'index_page': index_page[0],
                                                    'partner': partner,
+                                                   'hth': hth,
                                                    })
 
 def contacts(request):
