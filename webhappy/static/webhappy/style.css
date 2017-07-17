@@ -610,6 +610,7 @@ h1 {
 
 .butt_link {
     text-decoration: none;
+    color: #fff;
 }
 
 .butt_link:visited {
@@ -690,6 +691,9 @@ h1 {
 .hth_text_dot {
     font: 20px 'DINPro';
     text-align: left;
+    list-style: none;
+    width: 550px;
+    margin-top: 15px;
 }
 
 .hth_border {
@@ -720,4 +724,22 @@ h1 {
 
 .hth_img_dot {
     list-style: none;
+}
+
+.upper_static_banner {
+    width: 1290px;
+}
+
+.hth_small_text {
+    font: 14px 'DINPro';
+    color: black;
+}
+
+.cell_list {
+    list-style: none;
+    display: inline-flex;
+}
+
+ul {
+    padding-left: 0;
 }

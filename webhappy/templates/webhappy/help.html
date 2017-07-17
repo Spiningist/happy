@@ -14,6 +14,9 @@
 {% endblock %}
 {% block content %}
 <div id="wwd_wrap">
+    <div class="upper_banner_static_wrap">
+        <img class="upper_static_banner" src="{% static 'webhappy/images/upper_line_tight.png' %}">
+    </div>
     <ul class="wwd_head_list">
         <li><img src="{% static 'webhappy/images/wwd_left.png' %}"></li>
         <li><h1>что мы делаем</h1></li>
@@ -23,10 +26,12 @@
         <li class="hth_list_dot">
             <ul class="hth_text_list">
                 <li class="hth_text_dot">
-                    <span class="red_bold">{{ hth.0.name }}</span>
+                    <span class="red_bold">Благотворительная акция «Банан»</span>
                 </li>
                 <li class="hth_text_dot">
-                    {{ hth.0.text|safe|escape }}
+                    Отправьте SMS-сообщение на номер <span class="hth_border">3443</span><br>
+со словом <span class="hth_border">БАНАН</span> и через пробел укажите<br>
+сумму пожертвования.
                 </li>
                 <li class="hth_text_dot">
                     Например, <b>БАНАН 200.</b> В это случае вы пожертвуете <b>200 рублей.</b><br>
@@ -35,7 +40,35 @@
                     Чтобы Ваша поддержка была регулярной, отправьте SMS на короткий<br>
                     номер <b>3443</b> с текстом. <b>БАНАН 200 ПОДПИСКА.</b><br>
                     Вам ежемесячно будет приходить SMS-напоминание с просьбой подтвердить<br>
-                    указанный платеж. Чтоб
+                    указанный платеж.
+                </li>
+                <li class="hth_text_dot">
+                    <span class="hth_small_text">
+                        Допустимый размер пожертвования - от 10 до 5 000 рублей. Стоимость отправки SMS на номер 3443 - бесплатно.<br>
+Комиссия с абонента оператора мобильной связи - 0%.
+                    </span>
+                </li>
+                <li class="hth_text_dot">
+                    Услуга доступна для абонентов:
+                </li>
+                <li class="hth_text_dot">
+                    <ul class="cell_list">
+                        <li class="cell_dot">
+                            <img class="cell_img" src="{% static 'webhappy/images/megafon.png' %}">
+                        </li>
+                        <li class="cell_dot">
+                            <img class="cell_img" src="{% static 'webhappy/images/mts.png' %}">
+                        </li>
+                        <li class="cell_dot">
+                            <img class="cell_img" src="{% static 'webhappy/images/beeline.png' %}">
+                        </li>
+                    </ul>
+                </li>
+                <li class="hth_text_dot">
+                    <b>МТС.</b> <span class="hth_small_text">Договор оферты: https://pay.mts.ru/webportal/terms-account</span><br>
+                    <b>ТЕЛЕ2.</b> <span class="hth_small_text">Договор оферты: https://market.tele2.ru/page/tele2/help/offer/offermob/</span><br>
+                    <b>БИЛАЙН.</b> <span class="hth_small_text">Договор оферты: http://moskva.beeline.ru/customers/products/mobile/services/delails/mobilnyy-platezh/</span><br>
+                    <b>Мегафон.</b> <span class="hth_small_text">Договор оферты: http://moscow.megafon.ru/popups/oferta_m_payment.html</span>
                 </li>
             </ul>
             <ul class="hth_img_list">
