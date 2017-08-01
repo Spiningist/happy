@@ -4,6 +4,9 @@ from __future__ import unicode_literals
 
 from django.db import models
 from tinymce.models import HTMLField
+from PIL import Image as Img
+import StringIO
+from django.core.files.uploadedfile import InMemoryUploadedFile
 
 class MainPage(models.Model):
     name_of_page = models.CharField(max_length=50, default='Главная страница и общая информация')
@@ -63,6 +66,52 @@ class How_to_help(models.Model):
     img = models.FileField(upload_to='media/how_to_help', blank=True)
     text = HTMLField(max_length=2000,
                      default='Задачей программ явлеяется целевые проекты и социальная поддержка населения')
+
+    def __unicode__(self):  # __unicode__ on Python 2
+        return unicode(self.name) or u''
+
+class Media(models.Model):
+    date = models.DateTimeField(default='')
+    pub_date = models.DateTimeField('date published', auto_now_add=True)
+    name = models.CharField(max_length=200, default='Благотворительная акция Банан')
+    cover = models.ImageField(upload_to='cover',default='')
+
+    short_text = HTMLField(max_length=2000,
+                           default='Задачей программ явлеяется целевые проекты и социальная поддержка населения...')
+    full_text = HTMLField(max_length=4000,
+                           default='Задачей программ явлеяется целевые проекты и социальная поддержка населения...')
+
+    def save(self, *args, **kwargs):
+        if self.image_media:
+            image = Img.open(StringIO.StringIO(self.image_media.read()))
+            image.thumbnail((296, 233), Img.ANTIALIAS)
+            output = StringIO.StringIO()
+            image.save(output, format='JPEG', quality=75)
+            output.seek(0)
+            self.small_image = InMemoryUploadedFile(output, 'ImageField', "small_%s.jpg" % self.docfile.name,
+                                                    'image/jpeg',
+                                                    output.len, None)
+        super(Media_images, self).save(*args, **kwargs)
+
+    def __unicode__(self):  # __unicode__ on Python 2
+        return unicode(self.name) or u''
+
+class Media_images(models.Model):
+    vote_id = models.ForeignKey(Media, related_name='images')
+    image_media = models.ImageField(upload_to='images', default='')
+    small_image = models.ImageField(upload_to='images', default='')
+
+    def save(self, *args, **kwargs):
+        if self.image_media:
+            image = Img.open(StringIO.StringIO(self.image_media.read()))
+            image.thumbnail((296, 233), Img.ANTIALIAS)
+            output = StringIO.StringIO()
+            image.save(output, format='JPEG', quality=75)
+            output.seek(0)
+            self.small_image = InMemoryUploadedFile(output, 'ImageField', "small_%s.jpg" % self.docfile.name,
+                                                    'image/jpeg',
+                                                    output.len, None)
+        super(Media_images, self).save(*args, **kwargs)
 
     def __unicode__(self):  # __unicode__ on Python 2
         return unicode(self.name) or u''

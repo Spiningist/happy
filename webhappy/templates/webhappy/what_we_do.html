@@ -13,5 +13,47 @@
                     <li class="helper"></li>
 {% endblock %}
 {% block content %}
-<div><h1>What we do</h1></div>
+<div id="wwd_wrap">
+    <div class="upper_banner_static_wrap">
+        <img class="upper_static_banner" src="{% static 'webhappy/images/upper_line_tight.png' %}">
+    </div>
+    <ul class="wwd_head_list">
+        <li><img src="{% static 'webhappy/images/wwd_left.png' %}"></li>
+        <li><h1>что мы делаем</h1></li>
+        <li><img src="{% static 'webhappy/images/wwd_right.png' %}"></li>
+    </ul>
+    <div class="news_block">
+        {% if documents %}
+        <ul class="news_list">
+            {% for document in documents %}
+            <li class="news_dot">
+                <ul class="one_news_list">
+                    <li class="one_news_dot">
+                        <span class="o_n_data">{{ document.date.date }}</span>
+                    </li>
+                    <li class="one_news_dot">
+                        <img class="o_n_cover" src="{{ document.cover.url }}" >
+                    </li>
+                    <li class="one_news_dot">
+                        <span class="o_n_name">We are charity</span>
+                    </li>
+                    <li class="one_news_dot">
+                        <div class="o_n_text">
+                            Следует отметить, что благотворительный фонд не является инструментом защиты личного капитала или налоговой оптимизации.
+                        </div>
+                    </li>
+                    <li>
+                        <div class="more_button">
+                            more
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+            <h1>Мы скоро вам расскажем</h1>
+        {% endif %}
+    </div>
+</div>
 {% endblock %}

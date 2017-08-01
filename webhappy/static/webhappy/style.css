@@ -743,3 +743,8 @@ h1 {
 ul {
     padding-left: 0;
 }
+
+.o_n_cover {
+    width: 403px;
+    max-height: 187px;
+}
