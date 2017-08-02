@@ -831,3 +831,27 @@ ul {
     vertical-align: middle;
     padding: 2px 5px;
 }
+
+.article_name_wrap {
+    font: 24px 'DINPro';
+    color: #e62d22;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.article_date_wrap {
+    font: 20px 'DINPro-Bold';
+    color: black;
+    margin-bottom: 35px;
+}
+
+.article_text_wrap {
+    margin-bottom: 55px;
+}
+
+.article_wrap {
+    width: 870px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}

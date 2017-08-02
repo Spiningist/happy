@@ -92,7 +92,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'OPTIONS': {
-            'read_default_file': '/home/ae/code/happy/db.conf',
+            'read_default_file': '/Users/alex/code/happy/db.conf',
             'init_command': 'SET default_storage_engine=INNODB',
         },
     }
@@ -146,6 +146,7 @@ TINYMCE_DEFAULT_CONFIG = {
 'relative_urls': False, # default value
 'plugins': 'table,spellchecker,paste,searchreplace',
 'theme_advanced_buttons1': 'bold,italic,underline,bullist,numlist,link,unlink,styleselect,fontselect,fontsizeselect',
+'theme_advanced_buttons2': 'forecolor,backcolor',
 'width': '100%',
 'height': 300,
 'paste_text_sticky': True,

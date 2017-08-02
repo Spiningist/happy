@@ -96,10 +96,10 @@ class Media_images(models.Model):
             output = StringIO.StringIO()
             image.save(output, format='JPEG', quality=75)
             output.seek(0)
-            self.small_image = InMemoryUploadedFile(output, 'ImageField', "small_%s.jpg" % self.docfile.name,
+            self.small_image = InMemoryUploadedFile(output, 'ImageField', "small_%s.jpg" % self.image_media.name,
                                                     'image/jpeg',
                                                     output.len, None)
         super(Media_images, self).save(*args, **kwargs)
 
     def __unicode__(self):  # __unicode__ on Python 2
-        return unicode(self.name) or u''
+        return unicode(self.image_media.name) or u''

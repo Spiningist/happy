@@ -1,0 +1,122 @@
+{% extends "fcgt/base.html" %}
+{% load staticfiles %}
+{% block title%}Лаборатория Monochromos{% endblock%}
+{% block menu %}
+<div class="list_base">
+        <ul class="gallerylink_base">
+            <li><a href="{% url 'fcgt:gallery' %}"><img src="{% static 'fcgt/images/FC-site-konkurs3-color-menu-1.png' %}" alt="black and white">Лаборатория<br>Monochromos</a></li>
+            <li class="current_menu"><a href="{% url 'fcgt:gallery2' %}"><img src="{% static "fcgt/images/FC-site-konkurs3-color-menu-2.png" %}" alt="black and white">Планета<br>Polychromos</a></li>
+            <li><a href="{% url 'fcgt:gallery3' %}"><img src="{% static "fcgt/images/FC-site-konkurs3-color-menu-3.png" %}" alt="black and white">PITT Artist<br>скетч</a></li>
+            <li><a href="{% url 'fcgt:gallery4' %}"><img class="img_fix" src="{% static "fcgt/images/FC-site-konkurs3-color-menu-4.png" %}" alt="black and white">Albrecht Durer:<br>работают<br>профессионалы</a></li>
+            <li><a href="{% url 'fcgt:gallery5' %}"><img src="{% static "fcgt/images/FC-site-konkurs3-color-menu-5.png" %}" alt="black and white">Connector:<br>сам себе<br>конструктор</a></li>
+            <li><a href="{% url 'fcgt:gallery6' %}"><img class="img_fix" src="{% static "fcgt/images/FC-site-konkurs3-color-menu-6.png" %}" alt="black and white">Замок маленьких<br>художников</a></li>
+        </ul>
+ </div>
+{% endblock %}
+{% block content %}
+    <div class="titleWrap">
+        <ul class="titleWrapList">
+            <li>
+                <ul class="title_row">
+                    <li><div><img src="{% static 'fcgt/images/products.png'%}"></div></li>
+                    <li>
+                        <ul class="title_text">
+                            <li>
+                                ПРОДУКЦИЯ
+                            </li>
+                            <li>
+Любые полихромные материалы,<br> допускается незначительная<br> интеграция монохромных материалов.              <br>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <ul class="title_row">
+                    <li><div><img src="{% static 'fcgt/images/zoom.png'%}"></div></li>
+                    <li>
+                        <ul class="title_text">
+                            <li>
+                                КРИТЕРИИ ОТБОРА
+                            </li>
+                            <li>
+                                Законченная картина/картинка,<br>
+любого формата.
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <ul class="title_row">
+                    <li><div><img src="{% static 'fcgt/images/gablet.png'%}"></div></li>
+                    <li>
+                        <ul class="title_text">
+                            <li>
+                                ПРИЗОВЫЕ МЕСТА
+                            </li>
+                            <li>
+- 1 место;<br>
+- 2 место;<br>
+- 3 место.<br>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+     <div class="titleGallery">РАБОТЫ УЧАСТНИКОВ НОМИНАЦИИ</div>
+<div class="galleryWrap">
+
+
+{% if documents %}
+    <ul id="loader">
+        {% for document in documents %}
+
+            <li class="galleryList">
+                <a href="/picture/{{ document.id }}"><img id="{{ document.id }}" src="{{ document.small_image.url }}" alt="Reducto!" class="gallery"></a>
+                <div class="galleryText">{{document.art_host_name}}, {{document.art_city}}, &hearts;  {{ document.art_vote }} </div>
+                {% if user.is_superuser %}
+                <div class="galleryText_admin">{{document.pub_date}}</div>
+                <div class="delete_admin"><a href="/delete/{{ document.id }}">Удалить работу pk = {{ document.id }}</a></div>
+                {% endif %}
+            </li>
+
+        {% endfor %}
+        <div class="clearfix"></div>
+        <div id="more">
+            <ul class="paginator_list">
+        {% if documents.has_previous %}
+        <li><div class="paginator_button"><a id="prewButton" href="?page={{ documents.previous_page_number }}">< Предыдущая</a></div></li>
+                {% if page_range.0 != 1%}
+                <li><a id="prewButton" href="?page=1"> 1 </a></li>
+                {% endif %}
+        {% endif %}
+            {% for pg in page_range %}
+            {% if documents.number == pg %}
+                <li><a href="?page={{pg}}" id="btn-default">{{pg}}</a></li>
+            {% else %}
+                <li><a href="?page={{pg}}" class="btn">{{pg}}</a></li>
+            {% endif %}
+        {% endfor %}
+        {% if documents.has_next %}
+                {% if page_range|last != documents.paginator.num_pages  %}
+                <li><a id="nextButton" href="?page={{ documents.paginator.num_pages }}"> {{ documents.paginator.num_pages }}</a></li>
+                {% endif %}
+                <li><div class="paginator_button"><a id="nextButton" href="?page={{ documents.next_page_number }}">Следующая ></a></div></li>
+        {% endif %}
+
+
+
+        </ul>
+        </div>
+         </div>
+    <div class="clearfix"></div>
+    </ul>
+{% else %}
+    <div class="titleGallery">Никто еще не добавил работы в эту категорию, будьте первыми!</div>
+{% endif %}
+</div>
+{% endblock %}

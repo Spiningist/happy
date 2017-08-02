@@ -40,7 +40,7 @@ def about(request):
 def what_we_do(request):
     index_page = MainPage.objects.all()
     partner = Partner.objects.order_by('number')
-    obj = Media.objects.order_by('date')
+    obj = Media.objects.order_by('-date')
 
     paginator = Paginator(obj, 4)
     page = request.GET.get('page')
@@ -99,3 +99,15 @@ def contacts(request):
                                                    'partner': partner,
 
                                                    })
+
+def article(request, article_id):
+    index_page = MainPage.objects.all()
+    partner = Partner.objects.order_by('number')
+    w_w_d = Media.objects.get(pk=article_id)
+    images = w_w_d.images.all()
+    print images
+    return render(request, 'webhappy/article.html', {'index_page': index_page[0],
+                                                  'partner': partner,
+                                                  'media': w_w_d,
+                                                     'images': images,
+                                                  })
