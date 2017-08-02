@@ -35,22 +35,48 @@
                         <img class="o_n_cover" src="{{ document.cover.url }}" >
                     </li>
                     <li class="one_news_dot">
-                        <span class="o_n_name">We are charity</span>
+                        <span class="o_n_name">{{ document.name }}</span>
                     </li>
                     <li class="one_news_dot">
                         <div class="o_n_text">
-                            Следует отметить, что благотворительный фонд не является инструментом защиты личного капитала или налоговой оптимизации.
+                            {{ document.short_text|safe }}
                         </div>
                     </li>
-                    <li>
-                        <div class="more_button">
-                            more
+                    <li class="more_button_dot">
+                        <div class="button">
+                            <a class="butt_link" href="/"><span>подробнее</span></a>
                         </div>
                     </li>
                 </ul>
             </li>
             {% endfor %}
         </ul>
+        <div id="more">
+            <ul class="paginator_list">
+        {% if documents.has_previous %}
+                <li><div class="button"><a class="butt_link" href="?page={{ documents.previous_page_number }}"><span>< Предыдущая</span></a></div></li>
+                {% if page_range.0 != 1%}
+                <li><a id="prewButton" href="?page=1"> 1 </a></li>
+                {% endif %}
+        {% endif %}
+            {% for pg in page_range %}
+            {% if documents.number == pg %}
+                <li><a class="pagi_link" href="?page={{pg}}" id="btn-default">{{pg}}</a></li>
+            {% else %}
+                <li><a href="?page={{pg}}" class="btn">{{pg}}</a></li>
+            {% endif %}
+        {% endfor %}
+        {% if documents.has_next %}
+                {% if page_range|last != documents.paginator.num_pages  %}
+                <li><a id="nextButton" href="?page={{ documents.paginator.num_pages }}"> {{ documents.paginator.num_pages }}</a></li>
+                {% endif %}
+                <li><div class="button"><a class="butt_link" href="?page={{ documents.next_page_number }}"><span>Следующая ></span></a></div></li>
+        {% endif %}
+
+
+
+        </ul>
+        </div>
         {% else %}
             <h1>Мы скоро вам расскажем</h1>
         {% endif %}

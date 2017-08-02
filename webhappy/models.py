@@ -81,18 +81,6 @@ class Media(models.Model):
     full_text = HTMLField(max_length=4000,
                            default='Задачей программ явлеяется целевые проекты и социальная поддержка населения...')
 
-    def save(self, *args, **kwargs):
-        if self.image_media:
-            image = Img.open(StringIO.StringIO(self.image_media.read()))
-            image.thumbnail((296, 233), Img.ANTIALIAS)
-            output = StringIO.StringIO()
-            image.save(output, format='JPEG', quality=75)
-            output.seek(0)
-            self.small_image = InMemoryUploadedFile(output, 'ImageField', "small_%s.jpg" % self.docfile.name,
-                                                    'image/jpeg',
-                                                    output.len, None)
-        super(Media_images, self).save(*args, **kwargs)
-
     def __unicode__(self):  # __unicode__ on Python 2
         return unicode(self.name) or u''
 

@@ -42,7 +42,7 @@ def what_we_do(request):
     partner = Partner.objects.order_by('number')
     obj = Media.objects.order_by('date')
 
-    paginator = Paginator(obj, 15)
+    paginator = Paginator(obj, 4)
     page = request.GET.get('page')
 
     try:
