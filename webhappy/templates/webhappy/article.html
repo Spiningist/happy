@@ -32,14 +32,10 @@
         <div class="article_text_wrap">
             {{ media.full_text|safe }}
         </div>
-        <div class="gallery_wrap">
-            <ul>
-            {% for i in images %}
-                <li>
-                    {{ i }}
-                </li>
+        <div class="popup-gallery">
+            {% for i in images%}
+	        <a href="{{ i.image_media.url }}" title="The Cleaner"><img src="{{ i.small_image.url }}" width="405" height="207"></a>
             {% endfor %}
-            </ul>
         </div>
     </div>
 </div>

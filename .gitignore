@@ -5,6 +5,7 @@ __pycache__/
 /slider
 /media
 
+*.DS*
 *.log
 *.pot
 *.pyc
