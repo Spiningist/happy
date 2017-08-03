@@ -1,5 +1,4 @@
  $(document).ready(function() {
-
     $.ajaxSetup({
         beforeSend: function(xhr, settings) {
             if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
@@ -8,9 +7,9 @@
         }
     });
 
-var csrftoken = getCookie('csrftoken');
+    var csrftoken = getCookie('csrftoken');
 
-var jssor_1_SlideshowTransitions = [
+    var jssor_1_SlideshowTransitions = [
               {$Duration:1200,x:-0.3,$During:{$Left:[0.3,0.7]},$Easing:{$Left:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
               {$Duration:1200,x:0.3,$SlideOut:true,$Easing:{$Left:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2}
             ];
@@ -36,11 +35,11 @@ var jssor_1_SlideshowTransitions = [
               }
             };
 
-            var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+            try {
+                var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+                //alert(jssor_1_slider);
 
-            /*responsive code begin*/
-            /*remove responsive code if you don't want the slider scales while window resizing*/
-            function ScaleSlider() {
+                function ScaleSlider() {
                 var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
                 if (refSize) {
                     refSize = Math.min(refSize, 1290);
@@ -50,6 +49,16 @@ var jssor_1_SlideshowTransitions = [
                     window.setTimeout(ScaleSlider, 30);
                 }
             }
+            }
+            catch(err) {
+            //alert('ups');
+            }
+
+
+
+            /*responsive code begin*/
+            /*remove responsive code if you don't want the slider scales while window resizing*/
+
             ScaleSlider();
             $(window).bind("load", ScaleSlider);
             $(window).bind("resize", ScaleSlider);
