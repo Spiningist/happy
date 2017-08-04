@@ -75,11 +75,62 @@ class Media(models.Model):
     pub_date = models.DateTimeField('date published', auto_now_add=True)
     name = models.CharField(max_length=200, default='Благотворительная акция Банан')
     cover = models.ImageField(upload_to='cover',default='')
-
+    small_cover = models.ImageField(upload_to='cover',default='', blank=True, editable=False)
     short_text = HTMLField(max_length=2000,
                            default='Задачей программ явлеяется целевые проекты и социальная поддержка населения...')
     full_text = HTMLField(max_length=4000,
                            default='Задачей программ явлеяется целевые проекты и социальная поддержка населения...')
+
+    def save(self, *args, **kwargs):
+        if self.cover:
+            image = Img.open(StringIO.StringIO(self.cover.read()))
+            half_the_width = image.size[0] / 2
+            half_the_height = image.size[1] / 2
+            #image.thumbnail((403, 187), Img.ANTIALIAS)
+            if image.size[0] >= image.size[1] and image.size[0]: #если ширина больше высоты
+                rel = image.size[0] / 423
+                new_height = image.size[1] / rel
+                image.thumbnail((423, new_height), Img.ANTIALIAS)
+                if new_height > 196 :
+                    diff = new_height - 196
+                    crop_y_begin = new_height / 2 - 98
+                    crop_y_end = new_height / 2 + 98
+                    #print 'size is ', image.size[0],' ', image.size[1]
+                    #print 'crops are ', crop_y_begin, ' and ', crop_y_end
+                    crop_image = image.crop((0, crop_y_begin, 423, crop_y_end))
+                    #print 'new size is', crop_image.size[0], 'and ', crop_image.size[1]
+                else:
+                    diff =  196 - new_height
+                    crop_y_begin = -diff / 2
+                    crop_y_end = new_height + diff / 2
+                    crop_image = image.crop((0, crop_y_begin, 423, crop_y_end))
+            else:
+                rel = image.size[0] / 423
+                new_height = image.size[1] / rel
+                image.thumbnail((423, new_height), Img.ANTIALIAS)
+
+                if new_height >= 196 :
+                    crop_y_begin = new_height / 2 - 98
+                    crop_y_end = new_height / 2 + 98
+                    # print 'size is ', image.size[0],' ', image.size[1]
+                    # print 'crops are ', crop_y_begin, ' and ', crop_y_end
+                    crop_image = image.crop((0, crop_y_begin, 423, crop_y_end))
+                    # print 'new size is', crop_image.size[0], 'and ', crop_image.size[1]
+                else:
+                    print 'here2'
+                    diff =  new_height - image.size[1]
+                    end_height_crop = new_height + diff
+                    crop_image = image.crop((0, diff, 423, end_height_crop))
+
+            #crop_image.show()
+            output = StringIO.StringIO()
+            crop_image.save(output, format='JPEG', quality=100)
+            output.seek(0)
+            self.small_cover = InMemoryUploadedFile(output, 'ImageField', "small_%s.jpg" % self.cover.name,
+                                                    'image/jpeg',
+                                                    output.len, None)
+        super(Media, self).save(*args, **kwargs)
+
 
     def __unicode__(self):  # __unicode__ on Python 2
         return unicode(self.name) or u''
@@ -87,14 +138,52 @@ class Media(models.Model):
 class Media_images(models.Model):
     vote_id = models.ForeignKey(Media, related_name='images')
     image_media = models.ImageField(upload_to='images', default='')
-    small_image = models.ImageField(upload_to='images', default='')
+    small_image = models.ImageField(upload_to='images', default='', editable=False)
 
     def save(self, *args, **kwargs):
         if self.image_media:
             image = Img.open(StringIO.StringIO(self.image_media.read()))
-            image.thumbnail((296, 233), Img.ANTIALIAS)
+            half_the_width = image.size[0] / 2
+            half_the_height = image.size[1] / 2
+            # image.thumbnail((403, 187), Img.ANTIALIAS)
+            if image.size[0] >= image.size[1] and image.size[0]:  # если ширина больше высоты
+                rel = image.size[0] / 405
+                new_height = image.size[1] / rel
+                image.thumbnail((405, new_height), Img.ANTIALIAS)
+                if new_height > 208:
+                    diff = new_height - 208
+                    crop_y_begin = new_height / 2 - 104
+                    crop_y_end = new_height / 2 + 104
+                    # print 'size is ', image.size[0],' ', image.size[1]
+                    # print 'crops are ', crop_y_begin, ' and ', crop_y_end
+                    crop_image = image.crop((0, crop_y_begin, 405, crop_y_end))
+                    # print 'new size is', crop_image.size[0], 'and ', crop_image.size[1]
+                else:
+                    diff = 208 - new_height
+                    crop_y_begin = -diff / 2
+                    crop_y_end = new_height + diff / 2
+                    crop_image = image.crop((0, crop_y_begin, 405, crop_y_end))
+            else:
+                rel = image.size[0] / 405
+                new_height = image.size[1] / rel
+                image.thumbnail((405, new_height), Img.ANTIALIAS)
+
+                if new_height >= 208:
+                    crop_y_begin = new_height / 2 - 104
+                    crop_y_end = new_height / 2 + 104
+                    # print 'size is ', image.size[0],' ', image.size[1]
+                    # print 'crops are ', crop_y_begin, ' and ', crop_y_end
+                    crop_image = image.crop((0, crop_y_begin, 405, crop_y_end))
+                    # print 'new size is', crop_image.size[0], 'and ', crop_image.size[1]
+                else:
+                    print 'here2'
+                    diff = new_height - image.size[1]
+                    end_height_crop = new_height + diff
+                    crop_image = image.crop((0, diff, 405, end_height_crop))
+
+                    # crop_image.show()
             output = StringIO.StringIO()
-            image.save(output, format='JPEG', quality=75)
+            crop_image.save(output, format='JPEG', quality=100)
             output.seek(0)
             self.small_image = InMemoryUploadedFile(output, 'ImageField', "small_%s.jpg" % self.image_media.name,
                                                     'image/jpeg',

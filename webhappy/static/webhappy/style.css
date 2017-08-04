@@ -108,13 +108,14 @@ body {
     text-align: center;
     margin: 0;
     padding: 0;
+    max-width: 1290px;
 }
 
 #attick {
     text-align: center;
     margin: 0;
     padding: 0;
-    min-width: 1296px;
+    min-width: 1290px;
 }
 
 #top_line {
@@ -577,6 +578,7 @@ h1 {
     color: #e62d22;
     text-transform: uppercase;
     padding-top: 24px;
+    height: 86px;
 }
 
 .wwd_list_dot_list li {
@@ -874,4 +876,6 @@ ul {
     font: 20px 'DINPro';
 }
 
-.popup-gallery a img {max-width:100%;height:auto;}
+.popup-gallery a img {
+
+}

@@ -107,15 +107,11 @@
                 <ul class="wwd_list_dot_list">
                     <li><div class="wwd_ico_wrap"><img src="{{ act.img.url }}"></div></li>
                     <li class="wwd_name">{{ act.name }}</li>
+                    <li calss="wwd_text">{{ act.text|safe }}</li>
 
                 </ul>
             </li>
 
-            {% endfor %}
-        </ul>
-        <ul id="wwd_text_list">
-            {% for act in wwd %}
-            <li calss="wwd_text">{{ act.text|safe }}</li>
             {% endfor %}
         </ul>
     {% else %}
