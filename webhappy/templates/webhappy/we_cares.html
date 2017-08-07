@@ -13,5 +13,41 @@
                     <li class="helper"></li>
 {% endblock %}
 {% block content %}
-<div><h1>We cares</h1></div>
+<div id="wwd_wrap">
+<div class="upper_banner_static_wrap">
+        <img class="upper_static_banner" src="{% static 'webhappy/images/upper_line_tight.png' %}">
+    </div>
+    <ul class="wwd_head_list">
+        <li><img src="{% static 'webhappy/images/wwd_left.png' %}"></li>
+        <li><h1>Мы опекаем</h1></li>
+        <li><img src="{% static 'webhappy/images/wwd_right.png' %}"></li>
+    </ul>
+    <div class="we_cares_wrap">
+        {% if cares %}
+        <ul class="we_cares_list">
+            {% for c in cares %}
+            <li class="we_cares_dot">
+                <ul class="we_cares_dot_list">
+                    <li class="we_cares_dot_dot">
+                        <img class="we_cares_logo" src="{{ c.we_care_logo.url }}">
+                    </li>
+                    <li class="we_cares_dot_dot">
+                        <ul class="we_cares_non_img_list">
+                            <li class="we_cares_non_img_dot">
+                                <span class="w_c_name">{{ c.name }}</span>
+                            </li>
+                            <li class="we_cares_non_img_dot">
+                                <div class="w_c_text">{{ c.text|safe }}</div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+            <h1>Мы расскажем вам чуть позже</h1>
+        {% endif %}
+    </div>
+</div>
 {% endblock %}

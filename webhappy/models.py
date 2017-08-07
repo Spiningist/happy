@@ -50,7 +50,7 @@ class Partner(models.Model):
     number = models.IntegerField(default=0)
 
     class Meta:
-        verbose_name = ("Парнтнер")
+        verbose_name = ("Партнер")
         verbose_name_plural = ("Партнеры")
 
 
@@ -229,6 +229,19 @@ class About(models.Model):
     class Meta:
         verbose_name = ("О Фонде")
         verbose_name_plural = ("О Фонде")
+
+    def __unicode__(self):  # __unicode__ on Python 2
+        return unicode(self.name) or u''
+
+class We_cares(models.Model):
+    name = models.CharField(max_length=200, default='Детский дом')
+    text = HTMLField(max_length=1000, default='Следует отметить, что благотворительный фонд не является инструментом защиты личного капитала или налоговой оптимизации. Следует отметить, что благотворительный фонд не является инструментом защиты личного капитала или налоговой оптимизации. ')
+    we_care_logo = models.ImageField(upload_to='we_care', default='')
+    number = models.IntegerField(default=0)
+
+    class Meta:
+        verbose_name = ("Мы опекаем")
+        verbose_name_plural = ("Мы опекаем")
 
     def __unicode__(self):  # __unicode__ on Python 2
         return unicode(self.name) or u''

@@ -13,5 +13,73 @@
                     <li class="helper"></li>
 {% endblock %}
 {% block content %}
-<div><h1>News</h1></div>
+<div id="wwd_wrap">
+    <div class="upper_banner_static_wrap">
+        <img class="upper_static_banner" src="{% static 'webhappy/images/upper_line_tight.png' %}">
+    </div>
+    <ul class="wwd_head_list">
+        <li><img src="{% static 'webhappy/images/wwd_left.png' %}"></li>
+        <li><h1>что мы делаем</h1></li>
+        <li><img src="{% static 'webhappy/images/wwd_right.png' %}"></li>
+    </ul>
+    <div class="news_block">
+        {% if documents %}
+        <ul class="news_list">
+            {% for document in documents %}
+            <li class="news_dot">
+                <ul class="one_news_list">
+                    <li class="one_news_dot">
+                        <span class="o_n_data">{{ document.date.date }}</span>
+                    </li>
+                    <li class="one_news_dot">
+                        <img class="o_n_cover" src="{{ document.small_cover.url }}" >
+                    </li>
+                    <li class="one_news_dot">
+                        <span class="o_n_name">{{ document.name }}</span>
+                    </li>
+                    <li class="one_news_dot">
+                        <div class="o_n_text">
+                            {{ document.short_text|safe }}
+                        </div>
+                    </li>
+                    <li class="more_button_dot">
+                        <div class="button">
+                            <a class="butt_link" href="/article/{{ document.id }}"><span>подробнее</span></a>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            {% endfor %}
+        </ul>
+        <div id="more">
+            <ul class="paginator_list">
+        {% if documents.has_previous %}
+                <li><div class="button"><a class="butt_link" href="?page={{ documents.previous_page_number }}"><span>< Предыдущая</span></a></div></li>
+                {% if page_range.0 != 1%}
+                <li><a id="prewButton" href="?page=1"> 1 </a></li>
+                {% endif %}
+        {% endif %}
+            {% for pg in page_range %}
+            {% if documents.number == pg %}
+                <li><a class="pagi_link" href="?page={{pg}}" id="btn-default">{{pg}}</a></li>
+            {% else %}
+                <li><a href="?page={{pg}}" class="btn">{{pg}}</a></li>
+            {% endif %}
+        {% endfor %}
+        {% if documents.has_next %}
+                {% if page_range|last != documents.paginator.num_pages  %}
+                <li><a id="nextButton" href="?page={{ documents.paginator.num_pages }}"> {{ documents.paginator.num_pages }}</a></li>
+                {% endif %}
+                <li><div class="button"><a class="butt_link" href="?page={{ documents.next_page_number }}"><span>Следующая ></span></a></div></li>
+        {% endif %}
+
+
+
+        </ul>
+        </div>
+        {% else %}
+            <h1>Мы скоро вам расскажем</h1>
+        {% endif %}
+    </div>
+</div>
 {% endblock %}

@@ -987,3 +987,39 @@ ul {
     color: #e62d22;
     font: 18px 'DINPro-Bold';
 }
+
+.we_cares_dot {
+    list-style: none;
+    margin-bottom: 70px;
+}
+
+.we_cares_logo {
+    max-height: 170px;
+}
+
+.we_cares_dot_dot {
+    max-width: 570px;
+}
+
+.we_cares_dot_dot {
+    list-style: none;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 100px;
+}
+
+.we_cares_non_img_dot {
+    list-style: none;
+    text-align: left;
+}
+
+.w_c_name {
+    color: #e62d22;
+    font: 18px 'DINPro-Bold';
+}
+
+.w_c_text p {
+    color: black;
+    font: 18px 'DINPro';
+    text-align: justify;
+}
