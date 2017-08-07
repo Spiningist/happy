@@ -170,6 +170,17 @@ body {
 
 #email {
     font: 16px 'DINPro';
+    color: black;
+}
+
+#email_a {
+    font: 16px 'DINPro';
+    color: black;
+}
+
+##email_a:visited {
+    font: 16px 'DINPro';
+    color: black;
 }
 
 #first_row {
@@ -736,7 +747,6 @@ h1 {
 
 .upper_static_banner {
     width: 1290px;
-        margin-left: 3px;
 }
 
 .hth_small_text {
@@ -878,4 +888,82 @@ ul {
 
 .popup-gallery a img {
 
+}
+
+.con_name {
+    color: #e62d22;
+    font: 24px 'DINPro-Bold';
+    margin-bottom: 25px;
+}
+
+.con_add {
+    color: black;
+    font: 20px 'DINPro';
+    margin-bottom: 30px;
+}
+
+.con_phone {
+    color: black;
+    font: 20px 'DINPro';
+    margin-bottom: 10px;
+}
+
+.con_phone a {
+    color: black;
+    font: 20px 'DINPro';
+    margin-bottom: 10px;
+}
+
+.con_email {
+    color: black;
+    font: 20px 'DINPro';
+    margin-bottom: 60px;
+}
+
+.con_email a {
+    color: black;
+    font: 20px 'DINPro';
+    margin-bottom: 60px;
+}
+
+.con_social {
+    color: #e62d22;
+    font: 24px 'DINPro-Bold';
+    margin-bottom: 25px;
+}
+
+.con_insta {
+    color: black;
+    font: 20px 'DINPro';
+    margin-bottom: 10px;
+}
+
+.con_insta a {
+    color: black;
+    font: 20px 'DINPro';
+    margin-bottom: 10px;
+}
+
+.con_vk {
+    color: black;
+    font: 20px 'DINPro';
+    margin-bottom: 10px;
+}
+
+.con_vk a {
+    color: black;
+    font: 20px 'DINPro';
+    margin-bottom: 10px;
+}
+
+.con_f {
+    color: black;
+    font: 20px 'DINPro';
+    margin-bottom: 10px;
+}
+
+.con_f a {
+    color: black;
+    font: 20px 'DINPro';
+    margin-bottom: 10px;
 }

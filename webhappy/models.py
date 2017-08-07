@@ -14,6 +14,7 @@ class MainPage(models.Model):
     phone_code = models.CharField(max_length=5, default='925')
     phone_number = models.CharField(max_length=10, default='346-07-27')
     email = models.CharField(max_length=30, default='fond-schastie@hotmail.com')
+    adress = models.CharField(max_length=150, default='Адрес: г. Москва, ул. Тверская, 23')
     youtube = models.CharField(max_length=100, default='https://www.youtube.com/channel/UC20_z5bq_QyONSbVNtb3EVg')
     fb = models.CharField(max_length=100, default='https://www.facebook.com/fond.schastie/')
     insta = models.CharField(max_length=100, default='https://www.instagram.com/fond_schastie/')
@@ -192,3 +193,4 @@ class Media_images(models.Model):
 
     def __unicode__(self):  # __unicode__ on Python 2
         return unicode(self.image_media.name) or u''
+
