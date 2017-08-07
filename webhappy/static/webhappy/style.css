@@ -785,6 +785,7 @@ ul {
     text-overflow: ellipsis;
     overflow: hidden;
     margin-bottom: 10px;
+    text-align: justify;
 }
 
 .news_dot {
@@ -864,6 +865,8 @@ ul {
 
 .article_text_wrap {
     margin-bottom: 55px;
+    text-align: justify;
+    max-width: 822px;
 }
 
 .article_wrap {
@@ -966,4 +969,21 @@ ul {
     color: black;
     font: 20px 'DINPro';
     margin-bottom: 10px;
+}
+
+.about_wrap {
+    width: 880px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.about_text_wrap {
+    text-align: justify;
+    font: 18px 'DINPro';
+    margin-bottom: 90px;
+}
+
+.about_text_wrap span {
+    color: #e62d22;
+    font: 18px 'DINPro-Bold';
 }

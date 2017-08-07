@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from django.shortcuts import render
-from .models import MainPage, Slider, Partner, Wwd, Video, How_to_help, Media, Media_images
+from .models import MainPage, Slider, Partner, Wwd, Video, How_to_help, Media, Media_images, About
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -34,8 +34,12 @@ def index(request):
 def about(request):
     index_page = MainPage.objects.all()
     partner = Partner.objects.order_by('number')
+    about_page = About.objects.all()
+    wwd = Wwd.objects.all()
     return render(request, 'webhappy/about.html', { 'index_page': index_page[0],
                                                    'partner': partner,
+                                                    'about': about_page[0],
+                                                    'wwd': wwd,
                                                    })
 def what_we_do(request):
     index_page = MainPage.objects.all()

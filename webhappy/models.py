@@ -24,6 +24,11 @@ class MainPage(models.Model):
     photo = models.FileField(upload_to='media/CEO', default="")
     ps = HTMLField(max_length=1000, default=' ')
 
+    class Meta:
+        verbose_name = ("Главная страница")
+        verbose_name_plural = ("Главная страница")
+
+
     def __unicode__(self):  # __unicode__ on Python 2
         return unicode(self.name_of_page) or u''
 
@@ -32,6 +37,8 @@ class Slider(models.Model):
     img = models.FileField(upload_to='media/slider')
     link = models.CharField(max_length=100, default='https://www.instagram.com/fond_schastie/')
     name = models.CharField(max_length=50, default='Слайдер №')
+
+
 
     def __unicode__(self):  # __unicode__ on Python 2
         return unicode(self.name) or u''
@@ -42,6 +49,11 @@ class Partner(models.Model):
     img = models.FileField(upload_to='media/parner')
     number = models.IntegerField(default=0)
 
+    class Meta:
+        verbose_name = ("Парнтнер")
+        verbose_name_plural = ("Партнеры")
+
+
     def __unicode__(self):  # __unicode__ on Python 2
         return unicode(self.name) or u''
 
@@ -49,6 +61,10 @@ class Wwd(models.Model):
     name = models.CharField(max_length=50, default='Что мы делаем?')
     img = models.FileField(upload_to='media/wwd_ico')
     text = HTMLField(max_length=1000, default='Задачей программ явлеяется целевые проекты и социальная поддержка населения')
+
+    class Meta:
+        verbose_name = ("Что мы делаем для главной страницы")
+        verbose_name_plural = ("Что мы делаем для главной страницы")
 
     def __unicode__(self):  # __unicode__ on Python 2
         return unicode(self.name) or u''
@@ -59,6 +75,10 @@ class Video(models.Model):
     link = models.CharField(max_length=150, default='https://www.youtube.com/channel/UC20_z5bq_QyONSbVNtb3EVg')
     cover = models.CharField(max_length=150, default='https://img.youtube.com/vi/wi9Oz75dvI0/0.jpg')
 
+    class Meta:
+        verbose_name = ("Видео")
+        verbose_name_plural = ("Видео")
+
     def __unicode__(self):  # __unicode__ on Python 2
         return unicode(self.name) or u''
 
@@ -67,6 +87,11 @@ class How_to_help(models.Model):
     img = models.FileField(upload_to='media/how_to_help', blank=True)
     text = HTMLField(max_length=2000,
                      default='Задачей программ явлеяется целевые проекты и социальная поддержка населения')
+
+
+    class Meta:
+        verbose_name = ("Как помочь")
+        verbose_name_plural = ("Как помочь")
 
     def __unicode__(self):  # __unicode__ on Python 2
         return unicode(self.name) or u''
@@ -81,6 +106,10 @@ class Media(models.Model):
                            default='Задачей программ явлеяется целевые проекты и социальная поддержка населения...')
     full_text = HTMLField(max_length=4000,
                            default='Задачей программ явлеяется целевые проекты и социальная поддержка населения...')
+
+    class Meta:
+        verbose_name = ("Фотоальбом - что мы делаем")
+        verbose_name_plural = ("Фотоальбомы - что мы делаем")
 
     def save(self, *args, **kwargs):
         if self.cover:
@@ -131,7 +160,6 @@ class Media(models.Model):
                                                     'image/jpeg',
                                                     output.len, None)
         super(Media, self).save(*args, **kwargs)
-
 
     def __unicode__(self):  # __unicode__ on Python 2
         return unicode(self.name) or u''
@@ -194,3 +222,13 @@ class Media_images(models.Model):
     def __unicode__(self):  # __unicode__ on Python 2
         return unicode(self.image_media.name) or u''
 
+class About(models.Model):
+    name = models.CharField(max_length=200, default='Об организации')
+    about_fond = HTMLField(max_length=5000, default='Благотворительный фонд - это организация, созданная и работающая с целью финансирования различных видов благотворительной деятельности за счет денежных средств учреждений и фирм, а также обычных граждан страны. ')
+
+    class Meta:
+        verbose_name = ("О Фонде")
+        verbose_name_plural = ("О Фонде")
+
+    def __unicode__(self):  # __unicode__ on Python 2
+        return unicode(self.name) or u''

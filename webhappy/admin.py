@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import MainPage, Slider, Partner, Wwd, Video, How_to_help, Media, Media_images
+from .models import MainPage, Slider, Partner, Wwd, Video, How_to_help, Media, Media_images, About
 
 class Partner_Admin(admin.ModelAdmin):
     list_display = ('number','name','link')
@@ -18,3 +18,4 @@ admin.site.register(Video)
 admin.site.register(Partner, Partner_Admin)
 admin.site.register(How_to_help)
 admin.site.register(Media, Media_admin)
+admin.site.register(About)

@@ -13,5 +13,37 @@
                     <li class="helper"></li>
 {% endblock %}
 {% block content %}
-<div><h1>About</h1></div>
+<div id="wwd_wrap">
+<div class="upper_banner_static_wrap">
+        <img class="upper_static_banner" src="{% static 'webhappy/images/upper_line_tight.png' %}">
+    </div>
+    <ul class="wwd_head_list">
+        <li><img src="{% static 'webhappy/images/wwd_left.png' %}"></li>
+        <li><h1>О Фонде</h1></li>
+        <li><img src="{% static 'webhappy/images/wwd_right.png' %}"></li>
+    </ul>
+    <div class="about_wrap">
+        <div class="about_text_wrap">
+            {{ about.about_fond|safe }}
+        </div>
+
+    {% if wwd %}
+        <ul id="wwd_list">
+            {% for act in wwd %}
+            <li class="wwd_list_dot">
+                <ul class="wwd_list_dot_list">
+                    <li><div class="wwd_ico_wrap"><img src="{{ act.img.url }}"></div></li>
+                    <li class="wwd_name">{{ act.name }}</li>
+                    <li calss="wwd_text">{{ act.text|safe }}</li>
+
+                </ul>
+            </li>
+
+            {% endfor %}
+        </ul>
+    {% else %}
+        <div>Здесь еще пусто</div>
+    {% endif %}
+    </div>
+</div>
 {% endblock %}
