@@ -574,7 +574,7 @@ h1 {
 }
 
 .button span {
-    vertical-align: -10px;
+
 }
 
 .wwd_ico_wrap {
@@ -630,6 +630,7 @@ h1 {
 .butt_link {
     text-decoration: none;
     color: #fff;
+    vertical-align: -10px;
 }
 
 .butt_link:visited {
